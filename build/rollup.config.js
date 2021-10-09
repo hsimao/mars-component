@@ -1,6 +1,7 @@
 import vue from 'rollup-plugin-vue'
 import css from 'rollup-plugin-css-only'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
+import { terser } from 'rollup-plugin-terser'
 import typescript from 'rollup-plugin-typescript2'
 import { name } from '../package.json'
 const file = type => `dist/${name}.${type}.js`
@@ -19,6 +20,7 @@ export default {
     format: 'es'
   },
   plugins: [
+    terser(),
     nodeResolve(),
     typescript({ tsconfigOverride: overrides }),
     vue(),
