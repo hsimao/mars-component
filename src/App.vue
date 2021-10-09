@@ -1,14 +1,6 @@
 <template>
-  <hello />
-  <h1>慕课乐高标准模版</h1>
-  <ul>
-    <li>开箱即用</li>
-    <li>typescript</li>
-    <li>Vue3</li>
-    <li>支持 tsx</li>
-    <li>eslint</li>
-    <li>简单易用可扩展</li>
-  </ul>
+  <EText text="123456" />
+  <AppHeader />
 </template>
 
 <script lang="ts">
@@ -19,7 +11,6 @@ export default defineComponent({
   setup() {
     onMounted(() => {
       getCurrentInstance()?.appContext.config.globalProperties.$echo()
-      console.log('mounted')
     })
 
     console.log(inject('test'))
