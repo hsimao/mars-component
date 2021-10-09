@@ -1,4 +1,5 @@
 <template>
+  <hello />
   <h1>慕课乐高标准模版</h1>
   <ul>
     <li>开箱即用</li>
@@ -11,11 +12,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { inject, defineComponent, onMounted, getCurrentInstance } from 'vue'
 
 export default defineComponent({
   name: 'App',
-});
+  setup() {
+    onMounted(() => {
+      getCurrentInstance()?.appContext.config.globalProperties.$echo()
+      console.log('mounted')
+    })
+
+    console.log(inject('test'))
+
+    return {}
+  }
+})
 </script>
 
 <style>
